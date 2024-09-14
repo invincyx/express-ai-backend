@@ -4,6 +4,10 @@ import cors from 'cors';
 import { gptVision } from './ai-functions/gpt-vision.js';
 import { textComletion } from './ai-functions/text-completion.js';
 import { generateImage } from './ai-functions/image-gen.js';
+import { langchainTextCompletion } from './langchain-ai/text-completion.js';
+import { hfCompletion } from './langchain-ai/hf-completion.js';
+import { langchainPrompts } from './langchain-ai/prompting.js';
+
 
 dotenv.config();
 
@@ -46,5 +50,20 @@ app.post("/image-gen",async (req, res) => {
         
         const imageGen = await generateImage({ model: req.body.model, prompt: req.body.prompt });    
         res.send(imageGen);
-        // res.send("hello")
+})
+
+app.post("/langchain-text-completion",async (req, res) => {
+        
+        const langchainText = await langchainTextCompletion({ model: req.body.model, prompt: req.body.prompt });    
+        res.send(langchainText);
+})
+
+app.post("/hf-completion", async (req, res)=>{
+        const hf = await hfCompletion({model: req.body.model, prompt: req.body.prompt});
+        res.send(hf);
+})
+
+app.post("/lang-prompts", async (req, res)=>{
+        const lp = await langchainPrompts({model: req.body.model, essay: req.body.essay});
+        res.send(lp);
 })
