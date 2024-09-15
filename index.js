@@ -29,7 +29,7 @@ app.listen(port, () => {
 app.get('/', async (req, res) => {
 
 //   const image = await generateImage()
-
+        console.log("Hello there from the server");
   res.send("Hello there from the server");
 
 })
