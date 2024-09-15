@@ -7,6 +7,10 @@ import { generateImage } from './ai-functions/image-gen.js';
 import { langchainTextCompletion } from './langchain-ai/text-completion.js';
 import { hfCompletion } from './langchain-ai/hf-completion.js';
 import { langchainPrompts } from './langchain-ai/prompting.js';
+import { summaryPrompts } from './litfiles/summarize.js';
+import { essayHelper } from './litfiles/essay-helper.js';
+
+
 
 
 dotenv.config();
@@ -24,9 +28,10 @@ app.listen(port, () => {
 
 app.get('/', async (req, res) => {
 
-  const image = await generateImage()
+//   const image = await generateImage()
 
-  res.send(image);
+  res.send("Hello there from the server");
+
 })
 
 app.post("/gpt-vision",async (req, res) => {
@@ -66,4 +71,18 @@ app.post("/hf-completion", async (req, res)=>{
 app.post("/lang-prompts", async (req, res)=>{
         const lp = await langchainPrompts({model: req.body.model, essay: req.body.essay});
         res.send(lp);
+})
+
+// Lit files 
+
+ app.post("/summarize",async (req, res) => {
+                
+                const summary = await summaryPrompts({ model: req.body.model, essay: req.body.essay, maxChars: req.body.maxChars });    
+                res.send(summary);
+ })
+
+app.post("/essay-helper",async (req, res) => {
+                
+                const helper = await essayHelper({ model: req.body.model, topic: req.body.topic });    
+                res.send(helper);
 })
