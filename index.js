@@ -9,6 +9,7 @@ import { hfCompletion } from './langchain-ai/hf-completion.js';
 import { langchainPrompts } from './langchain-ai/prompting.js';
 import { summaryPrompts } from './litfiles/summarize.js';
 import { essayHelper } from './litfiles/essay-helper.js';
+import { generateQuestions } from './litfiles/question-generator.js';
 
 
 
@@ -85,4 +86,10 @@ app.post("/essay-helper",async (req, res) => {
                 
                 const helper = await essayHelper({ model: req.body.model, topic: req.body.topic });    
                 res.send(helper);
+})
+
+app.post("/generate-questions",async (req, res) => {
+                
+        const questions = await generateQuestions({ model: req.body.model, content: req.body.content, numQuestions: req.body.numQuestions });    
+        res.send(questions);
 })
