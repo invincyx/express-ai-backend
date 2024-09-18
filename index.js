@@ -93,3 +93,4 @@ app.post("/generate-questions",async (req, res) => {
         const questions = await generateQuestions({ model: req.body.model, content: req.body.content, numQuestions: req.body.numQuestions });    
         res.send(questions);
 })
+

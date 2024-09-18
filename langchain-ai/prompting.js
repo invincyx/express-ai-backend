@@ -14,7 +14,6 @@ export async function langchainPrompts({ model = "gpt-3.5-turbo", essay = "Maize
     const parser =  new StringOutputParser()
 
     const chain = prompt.pipe(openAIModel).pipe(parser)
-
     const res =  await chain.invoke({
         essay
     })
