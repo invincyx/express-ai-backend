@@ -23,7 +23,6 @@ export async function generateQuestions({ model = "gpt-3.5-turbo", numQuestions 
             <li> What are some efforts being made to revitalize Zimbabwe's economy and restore political stability?</li>
             <li> How has hyperinflation impacted the daily lives of Zimbabweans?</li>
         </ol>
-        
         ` );
     const parser =  new StringOutputParser()
 

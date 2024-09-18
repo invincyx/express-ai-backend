@@ -10,9 +10,7 @@ import { langchainPrompts } from './langchain-ai/prompting.js';
 import { summaryPrompts } from './litfiles/summarize.js';
 import { essayHelper } from './litfiles/essay-helper.js';
 import { generateQuestions } from './litfiles/question-generator.js';
-
-
-
+import { keypointsGenerator } from './litfiles/keypoints-generator.js';
 
 dotenv.config();
 
@@ -92,5 +90,12 @@ app.post("/generate-questions",async (req, res) => {
                 
         const questions = await generateQuestions({ model: req.body.model, content: req.body.content, numQuestions: req.body.numQuestions });    
         res.send(questions);
+})
+
+
+app.post("/keypoints-generator",async (req, res) => {
+                
+        const keypoints = await keypointsGenerator({ model: req.body.model, content: req.body.content });    
+        res.send(keypoints);
 })
 
