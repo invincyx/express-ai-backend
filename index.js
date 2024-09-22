@@ -11,6 +11,7 @@ import { summaryPrompts } from './litfiles/summarize.js';
 import { essayHelper } from './litfiles/essay-helper.js';
 import { generateQuestions } from './litfiles/question-generator.js';
 import { keypointsGenerator } from './litfiles/keypoints-generator.js';
+import { mathSolver } from './litfiles/math-solver.js';
 
 dotenv.config();
 
@@ -99,3 +100,13 @@ app.post("/keypoints-generator",async (req, res) => {
         res.send(keypoints);
 })
 
+
+app.post("/math-solver",async (req, res) => {
+    
+        const mathSolve = await mathSolver(req.body.imageUrl)
+
+        res.send(mathSolve);
+
+//     console.log(req.body.imageUrl); // log the request body to the console
+//   res.send('Received a POST request');
+})

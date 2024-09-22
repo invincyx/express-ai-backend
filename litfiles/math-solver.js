@@ -5,7 +5,7 @@ dotenv.config();
 
 const openai = new OpenAI();
 
-export async function gptVision(imageUrl) {
+export async function mathSolver(imageUrl) {
     const response = await openai.chat.completions.create({
       model: "gpt-4o",
       messages: [
