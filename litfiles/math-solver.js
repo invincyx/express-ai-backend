@@ -12,7 +12,18 @@ export async function mathSolver(imageUrl) {
         {
           role: "user",
           content: [
-            { type: "text", text: "Solve the math and show step by step working" },
+            { type: "text", text: `Solve the math and show step by step working and return the response in HTML tags. Don't put DOCTYPE, html, head, or body tags. Just the content.
+                
+                Examples:
+
+                <h3>Step 1</h3>
+                <p>Step 1 content</p>
+                <h3>Step 2</h3>
+                <p>Step 2 content</p>
+                <h3>Step 3</h3>
+                <p>Step 3 content</p>
+                
+                `   },
             {
               type: "image_url",
               image_url: {
