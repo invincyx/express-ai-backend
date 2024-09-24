@@ -16,12 +16,12 @@ export async function mathSolver(imageUrl) {
                 
                 Examples:
 
-                <h3>Step 1</h3>
-                <p>Step 1 content</p>
-                <h3>Step 2</h3>
-                <p>Step 2 content</p>
-                <h3>Step 3</h3>
-                <p>Step 3 content</p>
+                <h3>Step 1</h3> <br />
+                <p>Step 1 content</p> <br /><br />
+                <h3>Step 2</h3><br />
+                <p>Step 2 content</p><br /><br />
+                <h3>Step 3</h3><br />
+                <p>Step 3 content</p><br /><br />
                 
                 `   },
             {
