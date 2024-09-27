@@ -19,7 +19,13 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001;
 
+// Middleware to parse URL-encoded bodies
+app.use(express.urlencoded({ extended: true }));
+
+// Middleware to parse JSON bodies
 app.use(express.json());
+
+// Middleware to enable CORS
 app.use(cors());
 
 app.listen(port, () => {
@@ -114,10 +120,7 @@ app.post("/math-solver",async (req, res) => {
 
 // Lit files payment api
 
-app.post("/paynowResultUrl",async (req, res) => {
-
-        console.log(req.body);
-
-        res.send(req.body);
-
-})
+app.post("/paynowResultUrl", async (req, res) => {
+        console.log(req.body); // Now req.body will contain parsed URL-encoded data
+        res.send(req.body); 
+    });
