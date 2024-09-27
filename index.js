@@ -73,7 +73,7 @@ app.post("/lang-prompts", async (req, res)=>{
         res.send(lp);
 })
 
-// Lit files 
+// Lit files  ai functions
 
  app.post("/summarize",async (req, res) => {
                 
@@ -109,4 +109,13 @@ app.post("/math-solver",async (req, res) => {
 
 //     console.log(req.body.imageUrl); // log the request body to the console
 //   res.send('Received a POST request');
+})
+
+
+// Lit files payment api
+
+app.post("/paynowResultUrl",async (req, res) => {
+
+        res.send(req.body);
+
 })
