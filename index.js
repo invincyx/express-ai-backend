@@ -116,6 +116,8 @@ app.post("/math-solver",async (req, res) => {
 
 app.post("/paynowResultUrl",async (req, res) => {
 
+        console.log(req.body);
+
         res.send(req.body);
 
 })
