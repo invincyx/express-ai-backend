@@ -13,6 +13,8 @@ export async function mathSolver(imageUrl) {
           role: "user",
           content: [
             { type: "text", text: `Solve the math and show step by step working and return the response in HTML tags. Don't put DOCTYPE, html, head, or body tags. Just the content.
+
+              if the image doesn't contain math respond with "Please provide an image with a math problem to solve.😀."
                 
                 Examples:
 
